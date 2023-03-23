@@ -1,3 +1,5 @@
+NAME: Rhea
+
 # Year-11-CS-Unit-8-2D-Arrays-Quiz-Magic-Square
 
 Ensure that you read all instructions carefully. Do not include any additional methods that are not specified in this quiz description. Think carefully about your solution before writing any code. Use meaningful variable names and proper indentation - take pride in your work! 

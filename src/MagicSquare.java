@@ -7,6 +7,15 @@ public class MagicSquare {
      */
     public static int calculateCheckSum(int[][] array2d) {
 
+        int sum = 0;
+
+        for (int i = 0; i < array2d[0].length; i++)
+        {
+            sum = sum + array2d[0][i];
+        }
+
+        return sum;
+
     }
 
     /**
@@ -20,6 +29,23 @@ public class MagicSquare {
      */
     public static boolean magicRows(int[][] array2d, int checkSum) {
 
+        for (int i = 1; i < array2d.length; i++)
+        {
+            int sum = 0;
+            for (int c = 0; c < array2d[i].length; c++)
+            {
+                sum = sum + array2d[i][c];
+
+            }
+
+            if (sum != checkSum)
+            {
+                return false;
+            }
+
+        }
+
+        return true;
     }
 
     /**
@@ -29,6 +55,23 @@ public class MagicSquare {
      * @return whether the sum of each column in array2d is equal to checkSum or not.
      */
     public static boolean magicColumns(int[][] array2d, int checkSum) {
+
+        for (int i = 0; i < array2d[0].length; i++)
+        {
+            int sum = 0;
+            for (int r = 0; r < array2d.length; r++)
+            {
+                sum = sum + array2d[r][i];
+
+            }
+
+            if (sum != checkSum)
+            {
+                return false;
+            }
+        }
+
+        return true;
 
     }
 
@@ -40,6 +83,22 @@ public class MagicSquare {
      */
     public static boolean magicDiagonals(int[][] array2d, int checkSum) {
 
+        for (int i = 0; i < array2d.length ; i++)
+        {
+            int sum = 0;
+            for (int n = 0; i < array2d.length; i++)
+            {
+                sum = sum + array2d[i+n][i+n];
+            }
+
+            if (sum != checkSum)
+            {
+                return false;
+            }
+        }
+
+        return true;
+
     }
 
     /**
@@ -48,6 +107,15 @@ public class MagicSquare {
      * @return whether array2d is magic or not.
      */
     public static boolean isMagic(int[][] array2d) {
+
+        if (magicColumns(array2d, calculateCheckSum(array2d)) &&
+                magicRows(array2d, calculateCheckSum(array2d)) &&
+                magicDiagonals(array2d, calculateCheckSum(array2d)))
+        {
+            return true;
+        }
+
+        return false;
 
     }
 
